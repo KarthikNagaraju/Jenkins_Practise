@@ -22,7 +22,7 @@ pipeline {
         stage('Build docker image') {
            steps {
                script {
-                 def customImage = docker.build('devops/sampleCode', "./docker")
+                 def customImage = docker.build('devops/samplecode', "./docker")
                  docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }
